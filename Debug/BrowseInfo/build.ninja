@@ -1,0 +1,110 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\ASU\Embedded\Project\Bluetooth.c -xcl_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.xcl -macro_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = D$:\ASU\Embedded\Project\Bluetooth.c -o D$:\ASU\Embedded\Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.tmp
+  rspfile_name = D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.xcl.rsp
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\ASU\Embedded\Project\DIO.c -xcl_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.xcl -macro_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = D$:\ASU\Embedded\Project\DIO.c -o D$:\ASU\Embedded\Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.tmp
+  rspfile_name = D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.xcl.rsp
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\ASU\Embedded\Project\GPTM.c -xcl_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.xcl -macro_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = D$:\ASU\Embedded\Project\GPTM.c -o D$:\ASU\Embedded\Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.tmp
+  rspfile_name = D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.xcl.rsp
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\ASU\Embedded\Project\main.c -xcl_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.xcl -macro_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = D$:\ASU\Embedded\Project\main.c -o D$:\ASU\Embedded\Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.tmp
+  rspfile_name = D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.xcl.rsp
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\ASU\Embedded\Project\Smoke.c -xcl_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.xcl -macro_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = D$:\ASU\Embedded\Project\Smoke.c -o D$:\ASU\Embedded\Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.tmp
+  rspfile_name = D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.xcl.rsp
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\ASU\Embedded\Project\startup_ewarm.c -xcl_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl -macro_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = D$:\ASU\Embedded\Project\startup_ewarm.c -o D$:\ASU\Embedded\Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.tmp
+  rspfile_name = D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.xcl : COMPILER_XCL 
+  xclcommand = -source_file D$:\ASU\Embedded\Project\Ultrasonic.c -xcl_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.xcl -macro_file D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = D$:\ASU\Embedded\Project\Ultrasonic.c -o D$:\ASU\Embedded\Project\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.tmp
+  rspfile_name = D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.xcl.rsp
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.pbi : INDEXER D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.xcl |  $
+D$:\ASU\Embedded\Project\Bluetooth.c
+  flags = -out=D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.pbi -f D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.xcl
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.pbi : INDEXER D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.xcl |  $
+D$:\ASU\Embedded\Project\DIO.c
+  flags = -out=D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.pbi -f D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.xcl
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.pbi : INDEXER D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.xcl |  $
+D$:\ASU\Embedded\Project\GPTM.c
+  flags = -out=D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.pbi -f D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.xcl
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbi : INDEXER D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.xcl |  $
+D$:\ASU\Embedded\Project\main.c
+  flags = -out=D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbi -f D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.xcl
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.pbi : INDEXER D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.xcl |  $
+D$:\ASU\Embedded\Project\Smoke.c
+  flags = -out=D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.pbi -f D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.xcl
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl |  $
+D$:\ASU\Embedded\Project\startup_ewarm.c
+  flags = -out=D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.pbi -f D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.pbi : INDEXER D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.xcl |  $
+D$:\ASU\Embedded\Project\Ultrasonic.c
+  flags = -out=D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.pbi -f D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.xcl
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbw : MAKEBROWSE D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbd
+  flags = D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbd -output D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbw
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part0.pbi : PDBLINK D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.pbi |  $
+D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.pbi $
+D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.pbi
+  flags = -M D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part0.pbi D$:\ASU\Embedded\Project\Debug\BrowseInfo\Bluetooth.pbi D$:\ASU\Embedded\Project\Debug\BrowseInfo\DIO.pbi D$:\ASU\Embedded\Project\Debug\BrowseInfo\GPTM.pbi
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part1.pbi : PDBLINK D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbi |  $
+D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.pbi $
+D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.pbi
+  flags = -M D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part1.pbi D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbi D$:\ASU\Embedded\Project\Debug\BrowseInfo\Smoke.pbi D$:\ASU\Embedded\Project\Debug\BrowseInfo\startup_ewarm.pbi
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part2.pbi : PDBLINK D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.pbi
+  flags = -M D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part2.pbi D$:\ASU\Embedded\Project\Debug\BrowseInfo\Ultrasonic.pbi
+
+build D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbd : PDBLINK D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part0.pbi |  $
+D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part1.pbi $
+D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part2.pbi
+  flags = -M D$:\ASU\Embedded\Project\Debug\BrowseInfo\main.pbd D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part0.pbi D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part1.pbi D$:\ASU\Embedded\Project\Debug\BrowseInfo\main_part2.pbi
+
